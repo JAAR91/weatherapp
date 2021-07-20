@@ -7,7 +7,7 @@ This project includes a weather app that allows you to get the current weather c
 - Use of JavaScript functions and loops
 
 ## Live Server
-[Click Here](https://jaar91.github.io/To-do-List/)
+[Click Here](https://jaar91.github.io/weatherapp/)
 
 ## Built With
 
@@ -22,8 +22,8 @@ To get a local copy of the repository please run the following commands on your 
 
 ```bash
 $ cd <folder>
-$ git clone git@github.com:JAAR91/RESTAURANT-PAGE.git
-$ cd RESTAURANT-PAGE
+$ git clone git@github.com:JAAR91/weatherapp.git
+$ cd weatherapp
 ```
 
 Now set up webpack using the command:

@@ -72,7 +72,7 @@ const errorFound = () => {
 
 const getWeather = async (city) => {
   try {
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=48cadb81651cd163e32a09db006ac294`;
+    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=`;
     const response = await fetch(apiUrl);
     const catData = await response.json();
     showResults(catData);
