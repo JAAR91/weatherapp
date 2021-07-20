@@ -1,6 +1,6 @@
-# JS TO-DO List
+# Weather App
 
-In this project, we build a task pae project and I made use of the following:
+This project includes a weather app that allows you to get the current weather conditions of the city you type on the search box. The project includes:
 
 - DOM Manipulation with JavaScript
 - Webpack
