@@ -1,5 +1,4 @@
 node_modules
-assetManagement.sh
 commit.sh
-installlinters.sh
 runlinters.sh
+install-linters.sh
