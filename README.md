@@ -7,7 +7,7 @@ This project includes a weather app that allows you to get the current weather c
 - Use of JavaScript functions and loops
 
 ## Live Server
-[Click Here](https://jaar91.github.io/weatherapp/)
+- No live version due to api key sucurity
 
 ## Built With
 
