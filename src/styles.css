@@ -6,12 +6,11 @@ body {
 .form-container {
   width: 400px;
   display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .form-container input {
@@ -102,4 +101,3 @@ body {
 .bg-dark-opacy {
   background-color: rgba(0, 0, 0, 0.288);
 }
-/*# sourceMappingURL=styles.css.map */
