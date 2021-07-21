@@ -149,5 +149,5 @@ const glocation = (gloc) => {
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(glocation);
 } else {
-  errorFound('Error user coordenates not found!!');
+  errorFound('Error user coordinates not found!!');
 }
