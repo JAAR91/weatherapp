@@ -2,7 +2,7 @@ import './styles.css';
 import searchIcon from './img/search.svg';
 import tempMeassure from './constructor.js';
 
-const apiToken = 'enter api key here';
+const apiToken = 'insert API key here';
 
 let searchInp = {};
 
@@ -13,7 +13,6 @@ const searchbox = document.createElement('div');
 searchbox.classList.add('rounded', 'shadow', 'p-3', 'd-flex',
   'flex-column', 'align-items-center', 'mt-3', 'bg-opacy', 'position-relative');
 container.appendChild(searchbox);
-/// //////////////////////////////////////
 
 const checkcontainer = document.createElement('div');
 checkcontainer.classList.add('form-check', 'form-switch', 'p-0',
@@ -34,7 +33,6 @@ const degreeslabel = document.createElement('p');
 degreeslabel.classList.add('m-0', 'p-0', 'text-white');
 degreeslabel.textContent = 'C°';
 checkcontainer.appendChild(degreeslabel);
-/// /////////////////////////////////////////////
 
 const formlabel = document.createElement('label');
 formlabel.classList.add('form-label', 'text-white');
@@ -108,9 +106,13 @@ const errorFound = () => {
     </div>`;
 };
 
-const getWeather = async (city) => {
+const getWeather = async (city, location) => {
   try {
-    const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiToken}`;
+    
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiToken}`;
+    if (city === ''){
+      apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${apiToken}`;
+    }
     const response = await fetch(apiUrl);
     const catData = await response.json();
     showResults(catData);
@@ -124,7 +126,7 @@ const getWeather = async (city) => {
 searchBtn.onclick = () => {
   loadinanim();
   loadingbox.classList.remove('d-none');
-  getWeather(cityInp.value);
+  getWeather(cityInp.value, '');
   cityInp.value = '';
 };
 
@@ -141,4 +143,14 @@ const loadMeassure = () => {
 
 loadMeassure();
 
-getWeather('new york');
+let glocation = (gloc) => {
+  getWeather('', gloc);
+};
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(glocation);
+} else {
+  
+}
+
+//getWeather('new york', '');
