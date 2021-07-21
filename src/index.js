@@ -1,7 +1,7 @@
 import './styles.css';
 import searchIcon from './img/search.svg';
 
-const apiToken = 'insert api key code here';
+const apiToken = '48cadb81651cd163e32a09db006ac294';
 
 const container = document.getElementById('container');
 container.classList.add('container');

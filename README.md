@@ -36,6 +36,25 @@ To run the project just type the command:
 $ npm start
 ```
 
+## Getting the a API key to run the project
+
+To get the project running its necessary to get an API key to connect to weather service, dont worry, its free but make sure do the following:
+- Go to [openweathermap.org](https://openweathermap.org/) and create an accoount
+- Once you create your account, you will get a verification email, just click on the verification button.
+- Now you will get a second email with the API instructions and your API key.
+- Now that you have your API key, paste it on file index.js on line 4, like this:
+```
+const apiToken = 'API key';
+```
+- To run the project you cant type on the terminal:
+```
+npm start
+```
+or you can bundle everything with:
+```
+npm run build
+```
+
 ## Author
 
 👤  **Jose Alberto Arriaga Ramos**
