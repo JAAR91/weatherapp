@@ -1,18 +1,19 @@
 import './styles.css';
 import searchIcon from './img/search.svg';
-import tempMeassure  from './constructor.js';
-const apiToken = 'insert API key here';
+import tempMeassure from './constructor.js';
 
-let searchInp = new Object;
+const apiToken = 'enter api key here';
+
+let searchInp = {};
 
 const container = document.getElementById('container');
 container.classList.add('container');
 
 const searchbox = document.createElement('div');
 searchbox.classList.add('rounded', 'shadow', 'p-3', 'd-flex',
-'flex-column', 'align-items-center', 'mt-3', 'bg-opacy', 'position-relative');
+  'flex-column', 'align-items-center', 'mt-3', 'bg-opacy', 'position-relative');
 container.appendChild(searchbox);
-/////////////////////////////////////////
+/// //////////////////////////////////////
 
 const checkcontainer = document.createElement('div');
 checkcontainer.classList.add('form-check', 'form-switch', 'p-0',
@@ -33,7 +34,7 @@ const degreeslabel = document.createElement('p');
 degreeslabel.classList.add('m-0', 'p-0', 'text-white');
 degreeslabel.textContent = 'C°';
 checkcontainer.appendChild(degreeslabel);
-////////////////////////////////////////////////
+/// /////////////////////////////////////////////
 
 const formlabel = document.createElement('label');
 formlabel.classList.add('form-label', 'text-white');
@@ -68,20 +69,17 @@ const resultBox = document.createElement('div');
 resultBox.classList.add('rounded', 'bg-light-opacy', 'mt-2', 'p-0', 'shadow');
 container.appendChild(resultBox);
 
-let getSTemp = (Stemp) => {
+const getSTemp = (Stemp) => {
   let ans = 'test';
-  if(tempMeassure.temp === true){
+  if (tempMeassure.temp === true) {
     ans = `${Math.floor(Stemp - 273)}°C`;
-  }else{
-    ans = `${Math.floor(((Stemp - 273)*(9/5))+32)}°F`;
+  } else {
+    ans = `${Math.floor(((Stemp - 273) * (9 / 5)) + 32)}°F`;
   }
-  return ans
+  return ans;
 };
 
 const showResults = (weatherBlock) => {
-
-  console.log(getSTemp(weatherBlock.main.temp));
-  console.log()
   resultBox.innerHTML = '';
   resultBox.innerHTML += `<div class=" bg-dark-opacy m-0 rounded-top d-flex justify-content-center align-items-center">
         <h1 class="text-white text-center title">${weatherBlock.sys.country} - ${weatherBlock.name}</h1>
@@ -120,6 +118,7 @@ const getWeather = async (city) => {
   } catch (err) {
     errorFound();
   }
+  loadingbox.classList.add('d-none');
 };
 
 searchBtn.onclick = () => {
@@ -127,17 +126,16 @@ searchBtn.onclick = () => {
   loadingbox.classList.remove('d-none');
   getWeather(cityInp.value);
   cityInp.value = '';
-  loadingbox.classList.add('d-none');
 };
 
 tempMeassure.load();
 
-checktempInp.onclick= () =>{
+checktempInp.onclick = () => {
   tempMeassure.update(checktempInp.checked);
   showResults(searchInp);
-}
+};
 
-let loadMeassure = () =>{
+const loadMeassure = () => {
   checktempInp.checked = tempMeassure.temp;
 };
 
