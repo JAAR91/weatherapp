@@ -1,0 +1,116 @@
+body {
+  background-image: url("./img/sky.jpg");
+  background-size: cover;
+}
+
+.form-container {
+  width: 400px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.form-container input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-container button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.temp {
+  font-size: 150px;
+  color: #fcfcfc;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 60px;
+}
+
+.Haze {
+  background-image: url("./img/haze.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Clouds {
+  background-image: url("./img/clouds.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Clear {
+  background-image: url("./img/sun.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Rain {
+  background-image: url("./img/lluvia.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Mist {
+  background-image: url("./img/mist.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Smoke {
+  background-image: url("./img/smoke.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.Thunderstorm {
+  background-image: url("./img/thunderstorm.svg");
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.bg-opacy {
+  background-color: rgba(18, 26, 61, 0.274);
+}
+
+.searchbuttonicon {
+  width: 22px;
+}
+
+.cityInp {
+  background-color: rgba(255, 255, 255, 0.349);
+  border: 0;
+}
+
+.weatherImg {
+  width: 180px;
+  height: 200px;
+}
+
+.bg-light-opacy {
+  background-color: rgba(40, 49, 80, 0.356);
+}
+
+.bg-dark-opacy {
+  background-color: rgba(0, 0, 0, 0.288);
+}
+
+.tempToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
