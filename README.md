@@ -68,7 +68,7 @@ npm run build
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/JAAR91/To-do-List/issues).
+Feel free to check the [issues page](https://github.com/JAAR91/weatherapp/issues).
 
 ## Show your support
 

@@ -1,14 +1,39 @@
 import './styles.css';
 import searchIcon from './img/search.svg';
+import tempMeassure  from './constructor.js';
+const apiToken = 'insert API key here';
 
-const apiToken = '48cadb81651cd163e32a09db006ac294';
+let searchInp = new Object;
 
 const container = document.getElementById('container');
 container.classList.add('container');
 
 const searchbox = document.createElement('div');
-searchbox.classList.add('rounded', 'shadow', 'p-3', 'd-flex', 'flex-column', 'align-items-center', 'mt-3', 'bg-opacy');
+searchbox.classList.add('rounded', 'shadow', 'p-3', 'd-flex',
+'flex-column', 'align-items-center', 'mt-3', 'bg-opacy', 'position-relative');
 container.appendChild(searchbox);
+/////////////////////////////////////////
+
+const checkcontainer = document.createElement('div');
+checkcontainer.classList.add('form-check', 'form-switch', 'p-0',
+  'd-flex', 'align-items-center', 'tempToggle');
+searchbox.appendChild(checkcontainer);
+
+const farenlabel = document.createElement('p');
+farenlabel.classList.add('m-0', 'p-0', 'text-white');
+farenlabel.textContent = 'F°';
+checkcontainer.appendChild(farenlabel);
+
+const checktempInp = document.createElement('input');
+checktempInp.type = 'checkbox';
+checktempInp.classList.add('m-0', 'form-check-input', 'mx-1');
+checkcontainer.appendChild(checktempInp);
+
+const degreeslabel = document.createElement('p');
+degreeslabel.classList.add('m-0', 'p-0', 'text-white');
+degreeslabel.textContent = 'C°';
+checkcontainer.appendChild(degreeslabel);
+////////////////////////////////////////////////
 
 const formlabel = document.createElement('label');
 formlabel.classList.add('form-label', 'text-white');
@@ -43,7 +68,20 @@ const resultBox = document.createElement('div');
 resultBox.classList.add('rounded', 'bg-light-opacy', 'mt-2', 'p-0', 'shadow');
 container.appendChild(resultBox);
 
+let getSTemp = (Stemp) => {
+  let ans = 'test';
+  if(tempMeassure.temp === true){
+    ans = `${Math.floor(Stemp - 273)}°C`;
+  }else{
+    ans = `${Math.floor(((Stemp - 273)*(9/5))+32)}°F`;
+  }
+  return ans
+};
+
 const showResults = (weatherBlock) => {
+
+  console.log(getSTemp(weatherBlock.main.temp));
+  console.log()
   resultBox.innerHTML = '';
   resultBox.innerHTML += `<div class=" bg-dark-opacy m-0 rounded-top d-flex justify-content-center align-items-center">
         <h1 class="text-white text-center title">${weatherBlock.sys.country} - ${weatherBlock.name}</h1>
@@ -52,12 +90,12 @@ const showResults = (weatherBlock) => {
     <div class="row m-0 p-0">
         <div class="col-6 p-4 d-flex flex-row justify-content-center">
             <div class="${weatherBlock.weather[0].main} weatherImg"></div>
-            <p class="temp m-0 p-0">${Math.floor(weatherBlock.main.temp - 273)}°</p>
+            <p class="temp m-0 p-0">${getSTemp(weatherBlock.main.temp)}</p>
         </div>
         <div class="col-6 p-3">
             <div class="border-start p-3">
-            <p class="text-white fs-3">Feels like: ${Math.floor(weatherBlock.main.feels_like - 273)}°</p>
-            <p class="text-white fs-3">Min/Max Temp: ${Math.floor(weatherBlock.main.temp_min - 273)}°/${Math.floor(weatherBlock.main.temp_max - 273)}°</p>
+            <p class="text-white fs-3">Feels like: ${getSTemp(weatherBlock.main.feels_like)}</p>
+            <p class="text-white fs-3">Min-Max Temp: ${getSTemp(weatherBlock.main.temp_min)} - ${getSTemp(weatherBlock.main.temp_max)}</p>
             <p class="text-white fs-3">Humidity: ${weatherBlock.main.humidity}%</p>
             <p class="text-white fs-3">Pressure: ${weatherBlock.main.pressure} Pas</p>
             </div>
@@ -78,6 +116,7 @@ const getWeather = async (city) => {
     const response = await fetch(apiUrl);
     const catData = await response.json();
     showResults(catData);
+    searchInp = catData;
   } catch (err) {
     errorFound();
   }
@@ -90,5 +129,18 @@ searchBtn.onclick = () => {
   cityInp.value = '';
   loadingbox.classList.add('d-none');
 };
+
+tempMeassure.load();
+
+checktempInp.onclick= () =>{
+  tempMeassure.update(checktempInp.checked);
+  showResults(searchInp);
+}
+
+let loadMeassure = () =>{
+  checktempInp.checked = tempMeassure.temp;
+};
+
+loadMeassure();
 
 getWeather('new york');

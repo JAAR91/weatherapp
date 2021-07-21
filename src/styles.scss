@@ -72,6 +72,13 @@ body {
   background-repeat: no-repeat;
 }
 
+.Thunderstorm {
+  background-image: url('./img/thunderstorm.svg');
+  background-position: left;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
 .bg-opacy {
   background-color: rgba(18, 26, 61, 0.274);
 }
@@ -96,4 +103,10 @@ body {
 
 .bg-dark-opacy {
   background-color: rgba(0, 0, 0, 0.288);
+}
+
+.tempToggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
