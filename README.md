@@ -42,7 +42,7 @@ To get the project running its necessary to get an API key to connect to weather
 - Go to [openweathermap.org](https://openweathermap.org/) and create an accoount
 - Once you create your account, you will get a verification email, just click on the verification button.
 - Now you will get a second email with the API instructions and your API key.
-- Now that you have your API key, paste it on file index.js on line 4, like this:
+- Now that you have your API key, paste it on file index.js on line 5, like this:
 ```
 const apiToken = 'API key';
 ```

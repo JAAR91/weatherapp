@@ -99,18 +99,17 @@ const showResults = (weatherBlock) => {
     </div>`;
 };
 
-const errorFound = () => {
+const errorFound = (error) => {
   loadingbox.classList.remove('d-none');
   loadingbox.innerHTML = `<div>
-    <span class="text-white fs-">Error country name not found!!!</span>
+    <span class="text-white fs-">${error}</span>
     </div>`;
 };
 
 const getWeather = async (city, location) => {
   try {
-    
     let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiToken}`;
-    if (city === ''){
+    if (city === '') {
       apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${apiToken}`;
     }
     const response = await fetch(apiUrl);
@@ -118,7 +117,7 @@ const getWeather = async (city, location) => {
     showResults(catData);
     searchInp = catData;
   } catch (err) {
-    errorFound();
+    errorFound(`Error city ${city} not found!!`);
   }
   loadingbox.classList.add('d-none');
 };
@@ -143,14 +142,12 @@ const loadMeassure = () => {
 
 loadMeassure();
 
-let glocation = (gloc) => {
+const glocation = (gloc) => {
   getWeather('', gloc);
 };
 
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(glocation);
 } else {
-  
+  errorFound('Error user coordenates not found!!');
 }
-
-//getWeather('new york', '');
