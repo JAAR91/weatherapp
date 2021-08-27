@@ -5,3 +5,4 @@ install-linters.sh
 .eslintrc.json
 .hintrc
 .stylelintrc.json
+apicode.txt
