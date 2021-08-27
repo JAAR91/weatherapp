@@ -1,10 +1,6 @@
 # Weather App
 
-This project includes a weather app that allows you to get the current weather conditions of the city you type on the search box. The project includes:
-
-- DOM Manipulation with JavaScript
-- Webpack
-- Use of JavaScript functions and loops
+A weather app that pulls from the OpenWeatherMap API to allow users to search for and view the forecast in cities worldwide. Built with JavaScript.
 
 ## Live Server
 - No live version due to api key sucurity
